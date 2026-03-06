@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teddy's Romantic Journey 💕</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .scene {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            opacity: 0;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .scene.hidden {
+            display: none;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeOut {
+            to {
+                opacity: 0;
+            }
+        }
+
+        /* DOOR SCENE */
+        .door-scene {
+            background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .door {
+            width: 150px;
+            height: 250px;
+            background: #654321;
+            border: 8px solid #3d2817;
+            border-radius: 10px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .door-knob {
+            width: 15px;
+            height: 15px;
+            background: #FFD700;
+            border-radius: 50%;
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+
+        .male-teddy {
+            width: 80px;
+            height: 100px;
+            position: absolute;
+            animation: walk 4s ease-in-out forwards;
+        }
+
+        @keyframes walk {
+            0% {
+                left: -100px;
+            }
+            50% {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            100% {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+
+        .teddy-body {
+            width: 60px;
+            height: 60px;
+            background: #8B4513;
+            border-radius: 50%;
+            position: relative;
+            margin: 0 auto;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .teddy-head {
+            width: 45px;
+            height: 45px;
+            background: #8B4513;
+            border-radius: 50%;
+            position: absolute;
+            top: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .teddy-ear {
+            width: 15px;
+            height: 15px;
+            background: #8B4513;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .teddy-ear-left {
+            top: -8px;
+            left: 5px;
+        }
+
+        .teddy-ear-right {
+            top: -8px;
+            right: 5px;
+        }
+
+        .teddy-eye {
+            width: 5px;
+            height: 5px;
+            background: #000;
+            border-radius: 50%;
+            position: absolute;
+            top: 12px;
+        }
+
+        .teddy-eye-left {
+            left: 10px;
+        }
+
+        .teddy-eye-right {
+            right: 10px;
+        }
+
+        .teddy-snout {
+            width: 20px;
+            height: 15px;
+            background: #A0522D;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .teddy-nose {
+            width: 4px;
+            height: 4px;
+            background: #000;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .teddy-arm {
+            width: 15px;
+            height: 40px;
+            background: #8B4513;
+            border-radius: 50%;
+            position: absolute;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .teddy-arm-left {
+            left: -15px;
+            top: 15px;
+            animation: armWave 0.8s ease-in-out infinite;
+        }
+
+        .teddy-arm-right {
+            right: -15px;
+            top: 15px;
+            animation: armWave 0.8s ease-in-out 0.4s infinite;
+        }
+
+        @keyframes armWave {
+            0%, 100% {
+                transform: rotate(-30deg);
+            }
+            50% {
+                transform: rotate(30deg);
+            }
+        }
+
+        .teddy-leg {
+            width: 18px;
+            height: 35px;
+            background: #8B4513;
+            border-radius: 50%;
+            position: absolute;
+            bottom: -35px;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .teddy-leg-left {
+            left: 12px;
+        }
+
+        .teddy-leg-right {
+            right: 12px;
+        }
+
+        /* SITTING ROOM SCENE */
+        .room-scene {
+            background: linear-gradient(180deg, #E8D5C4 0%, #D4A574 100%);
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+
+        .sofa {
+            width: 300px;
+            height: 120px;
+            background: #8B0000;
+            border-radius: 20px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 80px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border: 3px solid #660000;
+        }
+
+        .sofa-cushion {
+            width: 290px;
+            height: 40px;
+            background: #A00000;
+            position: absolute;
+            bottom: 10px;
+            left: 5px;
+            border-radius: 15px;
+        }
+
+        .female-teddy {
+            position: absolute;
+            left: 35%;
+            bottom: 140px;
+            animation: appear 1s ease-out;
+        }
+
+        .male-teddy-sitting {
+            position: absolute;
+            left: 60%;
+            bottom: 140px;
+            animation: slideIn 2s ease-out 1s forwards;
+            opacity: 0;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                left: 65%;
+            }
+        }
+
+        @keyframes appear {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .flower {
+            width: 40px;
+            height: 60px;
+            position: absolute;
+            right: -30px;
+            top: 10px;
+            animation: presentFlower 2s ease-out 2.5s forwards;
+            opacity: 0;
+        }
+
+        @keyframes presentFlower {
+            to {
+                opacity: 1;
+                right: -50px;
+                transform: rotate(-20deg);
+            }
+        }
+
+        .flower-stem {
+            width: 3px;
+            height: 40px;
+            background: #228B22;
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .flower-petal {
+            width: 12px;
+            height: 12px;
+            background: #FF1493;
+            border-radius: 50%;
+            position: absolute;
+            top: 0;
+        }
+
+        .petal-1 { left: 14px; top: 0px; }
+        .petal-2 { left: 20px; top: 3px; }
+        .petal-3 { left: 20px; top: 9px; }
+        .petal-4 { left: 14px; top: 12px; }
+        .petal-5 { left: 8px; top: 12px; }
+        .petal-6 { left: 2px; top: 9px; }
+        .petal-7 { left: 2px; top: 3px; }
+        .petal-8 { left: 8px; top: 0px; }
+
+        .flower-center {
+            width: 8px;
+            height: 8px;
+            background: #FFD700;
+            border-radius: 50%;
+            position: absolute;
+            top: 7px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .hearts-celebration {
+            position: absolute;
+            font-size: 3rem;
+            animation: float 3s ease-in infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) translateX(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        .title {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 2rem;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- DOOR SCENE -->
+    <div class="scene door-scene" id="doorScene">
+        <div class="title">A Teddy Love Story 💕</div>
+        <div class="door">
+            <div class="door-knob"></div>
+        </div>
+        <div class="male-teddy">
+            <div class="teddy-head">
+                <div class="teddy-ear teddy-ear-left"></div>
+                <div class="teddy-ear teddy-ear-right"></div>
+                <div class="teddy-eye teddy-eye-left"></div>
+                <div class="teddy-eye teddy-eye-right"></div>
+                <div class="teddy-snout">
+                    <div class="teddy-nose"></div>
+                </div>
+            </div>
+            <div class="teddy-body">
+                <div class="teddy-arm teddy-arm-left"></div>
+                <div class="teddy-arm teddy-arm-right"></div>
+                <div class="teddy-leg teddy-leg-left"></div>
+                <div class="teddy-leg teddy-leg-right"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SITTING ROOM SCENE -->
+    <div class="scene room-scene hidden" id="roomScene">
+        <div class="title">A Teddy Love Story 💕</div>
+        <div class="sofa">
+            <div class="sofa-cushion"></div>
+        </div>
+
+        <!-- FEMALE TEDDY -->
+        <div class="female-teddy">
+            <div class="teddy-head" style="background: #D2691E;">
+                <div class="teddy-ear teddy-ear-left" style="background: #D2691E;"></div>
+                <div class="teddy-ear teddy-ear-right" style="background: #D2691E;"></div>
+                <div class="teddy-eye teddy-eye-left"></div>
+                <div class="teddy-eye teddy-eye-right"></div>
+                <div class="teddy-snout" style="background: #CD853F;">
+                    <div class="teddy-nose"></div>
+                </div>
+            </div>
+            <div class="teddy-body" style="background: #D2691E;">
+                <div class="teddy-arm teddy-arm-left" style="background: #D2691E; animation: none;"></div>
+                <div class="teddy-arm teddy-arm-right" style="background: #D2691E; animation: none;"></div>
+                <div class="teddy-leg teddy-leg-left" style="background: #D2691E;"></div>
+                <div class="teddy-leg teddy-leg-right" style="background: #D2691E;"></div>
+            </div>
+        </div>
+
+        <!-- MALE TEDDY IN ROOM -->
+        <div class="male-teddy-sitting">
+            <div class="flower">
+                <div class="flower-stem"></div>
+                <div class="petal petal-1"></div>
+                <div class="petal petal-2"></div>
+                <div class="petal petal-3"></div>
+                <div class="petal petal-4"></div>
+                <div class="petal petal-5"></div>
+                <div class="petal petal-6"></div>
+                <div class="petal petal-7"></div>
+                <div class="petal petal-8"></div>
+                <div class="flower-center"></div>
+            </div>
+            <div class="teddy-head">
+                <div class="teddy-ear teddy-ear-left"></div>
+                <div class="teddy-ear teddy-ear-right"></div>
+                <div class="teddy-eye teddy-eye-left"></div>
+                <div class="teddy-eye teddy-eye-right"></div>
+                <div class="teddy-snout">
+                    <div class="teddy-nose"></div>
+                </div>
+            </div>
+            <div class="teddy-body">
+                <div class="teddy-arm teddy-arm-left" style="animation: none;"></div>
+                <div class="teddy-arm teddy-arm-right" style="animation: none;"></div>
+                <div class="teddy-leg teddy-leg-left"></div>
+                <div class="teddy-leg teddy-leg-right"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchScene() {
+            setTimeout(() => {
+                const doorScene = document.getElementById('doorScene');
+                const roomScene = document.getElementById('roomScene');
+                
+                doorScene.style.animation = 'fadeOut 1s ease-out forwards';
+                
+                setTimeout(() => {
+                    doorScene.classList.add('hidden');
+                    roomScene.classList.remove('hidden');
+                }, 1000);
+            }, 4500);
+        }
+
+        function celebrateWithHearts() {
+            setTimeout(() => {
+                const roomScene = document.getElementById('roomScene');
+                const hearts = ['❤️', '💕', '💖', '💗'];
+                
+                for (let i = 0; i < 10; i++) {
+                    const heart = document.createElement('div');
+                    heart.className = 'hearts-celebration';
+                    heart.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.bottom = '50%';
+                    heart.style.animationDelay = i * 0.2 + 's';
+                    roomScene.appendChild(heart);
+                }
+            }, 3000);
+        }
+
+        // Start animations
+        switchScene();
+        celebrateWithHearts();
+    </script>
+</body>
+</html>
